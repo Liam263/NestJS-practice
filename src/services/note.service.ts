@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateNoteDTO } from 'src/dtos/note.dto';
 import { Note } from 'src/interfaces/note.interface';
 @Injectable()
 export class NoteService {
-  constructor(private noteService: Model<Note>) {}
+  constructor(@InjectModel('Note') private noteService: Model<Note>) {}
   async createNote(note: CreateNoteDTO): Promise<Note> {
     const newNote = await this.noteService.create(note);
     return newNote;
