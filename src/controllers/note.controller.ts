@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { CreateNoteDTO } from 'src/dtos/note.dto';
 import { NoteService } from 'src/services/note.service';
+
 @Controller()
 export class NoteController {
   constructor(private noteService: NoteService) {}
@@ -17,6 +18,7 @@ export class NoteController {
   @Post('/createNote')
   async createNote(@Res() res, @Body() noteDTO: CreateNoteDTO) {
     const note = await this.noteService.createNote(noteDTO);
+
     return res.json({
       message: 'Note created successfully',
       data: note,
@@ -42,6 +44,7 @@ export class NoteController {
         error: 'NOT FOUND',
       });
     }
+
     return res.json({
       message: 'FOUND',
       data: note,
@@ -61,6 +64,7 @@ export class NoteController {
         error: 'NOT FOUND',
       });
     }
+
     return res.json({
       message: 'UPDATED',
       data: note,
@@ -76,6 +80,7 @@ export class NoteController {
         error: 'NOT FOUND',
       });
     }
+
     return res.json({
       message: 'DELETED',
       data: note,
