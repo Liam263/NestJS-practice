@@ -9,8 +9,12 @@
     "version": 2,
     "builds": [
       {
+<<<<<<< HEAD
         "src": "dist/main.js",
 >>>>>>> d26d38e (vercel config)
+=======
+        "src": "src/main.ts",
+>>>>>>> d6f1529 (vercel config)
         "use": "@vercel/node"
       }
     ],
@@ -18,6 +22,9 @@
       {
         "src": "/(.*)",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d6f1529 (vercel config)
         "dest": "src/main.ts",
         "methods":[
             "GET",
@@ -26,6 +33,7 @@
             "PATCH",
             "DELETE"
         ]
+<<<<<<< HEAD
       }
     ]
   }
@@ -47,6 +55,8 @@
 >>>>>>> 766f320 (vercel config)
 =======
         "dest": "dist/main.js"
+=======
+>>>>>>> d6f1529 (vercel config)
       }
     ]
   }
