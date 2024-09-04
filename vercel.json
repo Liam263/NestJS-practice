@@ -1,15 +1,23 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "version": 2,
     "builds": [
       {
         "src": "src/main.ts",
+=======
+    "version": 2,
+    "builds": [
+      {
+        "src": "dist/main.js",
+>>>>>>> d26d38e (vercel config)
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
+<<<<<<< HEAD
         "dest": "src/main.ts",
         "methods":[
             "GET",
@@ -37,3 +45,9 @@
   ]
 }
 >>>>>>> 766f320 (vercel config)
+=======
+        "dest": "dist/main.js"
+      }
+    ]
+  }
+>>>>>>> d26d38e (vercel config)
