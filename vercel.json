@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "version": 2,
     "builds": [
       {
@@ -20,3 +21,19 @@
       }
     ]
   }
+=======
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/main.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/main.ts"
+    }
+  ]
+}
+>>>>>>> 766f320 (vercel config)
