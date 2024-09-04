@@ -1,73 +1,126 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
+# TO DO Tasks
+This project is a web application that allows users to CRUD their tasks
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+  - [Create a Note](#create-a-note)
+  - [Get All Notes](#get-all-notes)
+  - [Get a Single Note](#get-note-by-id)
+  - [Update a Note](#update-a-note)
+  - [Delete a Note](#delete-a-note-by-id)
 ## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/project-name.git
+2. Install dependencies and start project:
+   ```bash
+   npm i
+   npm start
+## Usage
+- Navigate to `http://localhost:3000` to access the application.
 
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## API Endpoints 
+### Create a note
+* Endpoint: `POST /createNote`
+* Request body:
+  ```bash
+  {
+  "name": "Sample Note",
+  "description": "This is a sample note."
+  }
+* Description: Create a new note
+* Response:
+  ```bash
+  {
+    "message": "Note created successfully",
+    "data": {
+        "name": "Sample Note",
+        "description": "This is a sample note.",
+        "_id": "66d137399d2be935d6e2fb5f",
+        "createdAt": "2024-08-30T03:06:33.930Z",
+        "updatedAt": "2024-08-30T03:06:33.930Z",
+        "__v": 0
+    }
+  }
+### Get all notes
+* Endpoint: `GET /getAll`
+* Description: Get all notes
+* Response:
+  ```bash
+  {
+    "message": "Get all notes",
+    "data": [
+        {
+            "_id": "66d1263ab349f1d37621aacd",
+            "name": "TEST4",
+            "description": "description4",
+            "createdAt": "2024-08-30T01:49:58.689Z",
+            "__v": 0
+        },
+        {
+            "_id": "66d137399d2be935d6e2fb5f",
+            "name": "ABCBCBCBCB",
+            "description": "description11",
+            "createdAt": "2024-08-30T03:06:33.930Z",
+            "updatedAt": "2024-08-30T03:10:30.259Z",
+            "__v": 0
+        }
+    ]
+  }
+### Get note by ID
+* Endpoint: `GET /getsingleNote/:id`
+* Parameters: `id`: The ID of the note to retrieve
+* Description: Get note by ID
+* Response:
+  ```bash
+  {
+      "message": "FOUND",
+      "data": {
+          "_id": "66d1263ab349f1d37621aacd",
+          "name": "TEST4",
+          "description": "description4",
+          "createdAt": "2024-08-30T01:49:58.689Z",
+          "__v": 0
+      }
+  }
+### Update a note
+* Endpoint: `PATCH /updateNote/id`
+* Parameters: `id`: The ID of the note to retrieve
+* Request body:
+  ```bash
+  {
+  "name": "UPDATE Sample Note",
+  "description": "This is a UPDATE sample note."
+  }
+* Description: Update a note by id
+* Response:
+  ```bash
+  {
+      "message": "UPDATED",
+      "data": {
+          "_id": "66d137399d2be935d6e2fb5f",
+          "name": "ABCBCBCBCB",
+          "description": "description11",
+          "createdAt": "2024-08-30T03:06:33.930Z",
+          "updatedAt": "2024-08-30T03:09:34.744Z",
+          "__v": 0
+      }
+  }
+### Delete a note by ID
+* Endpoint: `DELETE /deleteNote/:id`
+* Parameters: `id`: The ID of the note to retrieve
+* Description: Delete note
+* Response:
+  ```bash
+  {
+      "message": "DELETED",
+      "data": {
+          "_id": "66d137399d2be935d6e2fb5f",
+          "name": "ABCBCBCBCB",
+          "description": "description11",
+          "createdAt": "2024-08-30T03:06:33.930Z",
+          "updatedAt": "2024-08-30T03:10:30.259Z",
+          "__v": 0
+      }
+  }
