@@ -8,8 +8,8 @@ import {
   Post,
   Res,
 } from '@nestjs/common';
-import { CreateNoteDTO } from 'src/dtos/note.dto';
-import { NoteService } from 'src/services/note.service';
+import { CreateNoteDTO } from '../dtos/note.dto';
+import { NoteService } from '../services/note.service';
 
 @Controller()
 export class NoteController {
