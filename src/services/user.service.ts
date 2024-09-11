@@ -20,7 +20,6 @@ export class UserService {
 
   async getAllUsers(): Promise<User[]> {
     const users = await this.userService.find();
-    console.log('users: ', users);
     return users;
   }
 

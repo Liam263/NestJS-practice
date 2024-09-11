@@ -11,7 +11,7 @@ import {
 import { UserDTO } from 'src/dtos/note.dto';
 import { UserService } from 'src/services/user.service';
 
-@Controller('users')
+@Controller()
 export class UsersController {
   constructor(private userService: UserService) {}
 
@@ -24,13 +24,13 @@ export class UsersController {
     });
   }
 
-  @Get('admin/getAllUsers')
+  @Get('admin/api/getAllUsers')
   async getAllUsers(@Res() res) {
     const users = await this.userService.getAllUsers();
     return res.json(users);
   }
 
-  @Get('admin/:id')
+  @Get('admin/api/:id')
   async getUserById(@Res() res, @Param('id') id: string) {
     const user = await this.userService.getUserById(id);
     return res.json(user);

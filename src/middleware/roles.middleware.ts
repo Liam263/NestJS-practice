@@ -14,7 +14,7 @@ export class RolesMiddleware implements NestMiddleware {
       throw new UnauthorizedException('User not found');
     }
     console.log(user);
-    if (user !== 'admin' && route.startsWith('/users/admin')) {
+    if (user !== 'admin' && route.startsWith('/admin/api')) {
       return res.status(403).json({ message: 'Access forbidden: Admin only' });
     }
 
