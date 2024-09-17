@@ -36,13 +36,13 @@ export class UsersController {
     return res.json(user);
   }
 
-  @Patch('/updateUser/:id')
+  @Patch('/users/:id')
   async updateUser(@Res() res, @Param('id') id: string, @Body() user: UserDTO) {
     const updatedUser = await this.userService.updateUser(id, user);
     return res.json(updatedUser);
   }
 
-  @Delete('/deleteUser/:id')
+  @Delete('/users/:id')
   async deleteUser(@Res() res, @Param('id') id: string) {
     const deletedUser = await this.userService.deleteUser(id);
     return res.json(deletedUser);
