@@ -8,6 +8,7 @@ import {
   Post,
   Res,
 } from '@nestjs/common';
+import { users } from 'src/Data/UserMockData';
 import { UserDTO } from 'src/dtos/note.dto';
 import { UserService } from 'src/services/user.service';
 
@@ -17,6 +18,7 @@ export class UsersController {
 
   @Post('/createUser')
   async createUser(@Res() res, @Body() user: UserDTO) {
+    console.log('Controller', user.name, user.password, user.role);
     const newUser = await this.userService.createUser(user);
     return res.json({
       message: 'User created successfully',
@@ -46,5 +48,27 @@ export class UsersController {
   async deleteUser(@Res() res, @Param('id') id: string) {
     const deletedUser = await this.userService.deleteUser(id);
     return res.json(deletedUser);
+  }
+
+  @Post('/login')
+  async login(@Res() res, @Body() user: { name: string; password: string }) {
+    const loginUser = await this.userService.login(user.name, user.password);
+    if (loginUser) {
+      const token = { userId: loginUser._id, role: loginUser.role };
+
+      return res.json({
+        message: 'Login successful',
+        token,
+      });
+    }
+
+    return res.status(401).json({ message: 'Invalid Credentials' });
+  }
+
+  @Get('/userList/:id')
+  async getUserList(@Res() res, @Param('id') id: string) {
+    const toDoList = users.find((user) => user.id === id);
+
+    return res.json(toDoList);
   }
 }

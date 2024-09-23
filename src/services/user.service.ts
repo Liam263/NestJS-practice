@@ -10,6 +10,8 @@ export class UserService {
 
   async createUser(user: UserDTO): Promise<User> {
     const newUser = await this.userService.create(user);
+    console.log(`User input: ${user.name}: ${user.password}`);
+    console.log(`User created: ${newUser.name} : ${newUser.password}`);
 
     return newUser;
   }
@@ -29,5 +31,10 @@ export class UserService {
 
   async deleteUser(userId: string): Promise<void> {
     return await this.userService.findByIdAndDelete(userId);
+  }
+
+  async login(name: string, password: string): Promise<User> {
+    const user = await this.userService.findOne({ name, password });
+    return user;
   }
 }
