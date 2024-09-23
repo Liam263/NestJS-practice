@@ -1,7 +1,10 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersController } from 'src/controllers/user.controller';
-import { RolesMiddleware } from 'src/middleware/roles.middleware';
+import {
+  AuthMiddleware,
+  RolesMiddleware,
+} from 'src/middleware/roles.middleware';
 import { UserSchema } from 'src/repositories/schemas/user.schema';
 import { UserService } from 'src/services/user.service';
 
@@ -13,5 +16,6 @@ import { UserService } from 'src/services/user.service';
 export class UserModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(RolesMiddleware).forRoutes(UsersController);
+    consumer.apply(AuthMiddleware).forRoutes('/userList/:id');
   }
 }
